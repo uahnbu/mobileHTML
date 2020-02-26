@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+<link rel="stylesheet" href="screen_welcome.css">
+<link rel="stylesheet" href="screen_signup.css">
+<link rel="stylesheet" href="screen_dashboard.css">
+<style>
+body {
+  background: gold;
+  font-family: Roboto;
+}
+
+#device {
+  position: absolute;
+  left: calc(50% - (100vh/2) / 2);
+  top: 0;
+  height: 100%;
+  width: calc(100vh / 19 * 9);
+  border-radius: 4vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #000;
+}
+
+#device:before {
+  content: '';
+  position: absolute;
+  left: 2%;
+  top: -1%;
+  width: 96%;
+  height: 102%;
+  box-shadow:
+    inset 0 0 4vh 0 white,
+    inset 0 0 2vh 0 rgba(255, 255, 255, 0.5),
+    0 0 2vh 0 white,
+    0 0 2vh 0 rgba(255, 255, 255, 0.5);
+  border-radius: 4vh;
+  z-index: 5;
+  pointer-events: none;
+}
+
+#device:after {
+  content: '';
+  position: absolute;
+  top: .1%;
+  width: 100%;
+  height: 99%;
+  border-radius: 6vmin;
+  border-top: .1vh solid #9fa0a2;
+  border-bottom: .1vh solid #9fa0a2;
+  z-index: 4;
+  box-shadow: inset 0 0 1vh 0 rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+
+#screen {
+  position: absolute;
+  left: 2%;
+  top: 5%;
+  width: 96%;
+  height: 90%;
+  background: white;
+  border-radius: .6vh;
+  overflow: hidden;
+}
+
+body.mobile #device {
+  left: 0;
+  width: 100%;
+  border-radius: 0;
+}
+
+body.mobile #device:before,
+body.mobile #device:after {
+  content: none;
+}
+
+body.mobile #screen {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.screens {
+  position: absolute;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: .5s;
+}
+
+.texts {
+  height: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .8;
+  user-select: none;
+}
+
+.buttons {
+  border-radius: .5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .9;
+  cursor: pointer;
+  user-select: none;
+}
+
+.inputs {
+  border-radius: .5vh;
+  opacity: .9
+}
+
+.move-out {left: -100% !important; }
+.move-in {left: 0 !important; }
+</style>  
+</head>
+<body>
+<div id="device">
+  <div id="screen">
+    <div id="screen_welcome" class="screens">
+      <img src="icon.png" id="welcome-icon">
+      <div id="welcome-text1" class="texts">SPACAPP</div>
+      <div id="welcome-text2" class="texts">Create your account</div>
+      <div id="welcome-text3" class="texts">Lorem ipsum dolor sit amet consectetur adipiscing elit</div>
+      <div id="welcome-button" class="buttons">START</div>
+    </div>
+    <div id="screen_signup" class="screens">
+      <div id="signup-text1" class="texts">Create account</div>
+      <div id="signup-box1">
+        <label for="signup-input1">Your name</label>
+        <input type="text" id="signup-input1" class="inputs" spellcheck="false">
+      </div>
+      <div id="signup-box2">
+        <label for="signup-input2">Your email</label>
+        <input type="text" id="signup-input2" class="inputs" spellcheck="false">
+      </div>
+      <div id="signup-box3">
+        <label for="signup-input3">Create password</label>
+        <input type="password" id="signup-input3" class="inputs" spellcheck="false">
+      </div>
+      <div id="signup-box4">
+        <label id="signup-checkbox">
+          <input type="checkbox" id="signup-input4">
+          <span></span>
+        </label>
+        <div id="signup-text2" class="texts">I agree with the &nbsp;<u>terms and conditions</u></div>
+      </div>
+      <div id="signup-button" class="buttons">Create account</div>
+    </div>
+    <div id="screen_dashboard" class="screens">
+      <div id="dashboard-topbar"></div>
+      <div id="dashboard-icon">
+        <img src="profile.png">
+      </div>
+      <div id="dashboard-text1" class="texts"></div>
+      <div id="dashboard-text2" class="texts"></div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+if (['Mobile', 'iPhone', 'Android'].some(device => navigator.userAgent.includes(device))) {
+  document.body.classList.add('mobile');
+}
+
+let geolocation;
+(async () => {
+  let data = await fetch('https://ipinfo.io/city');
+  geolocation = await data.text();
+})();
+</script>
+</body>
+</html>

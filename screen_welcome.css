@@ -1,0 +1,44 @@
+#screen_welcome {
+  left: 0;
+  background-image: url(bg.jpg);
+  background-size: cover;
+}
+
+#welcome-icon {
+  margin-top: 30%;
+  height: 16vh;
+}
+
+#welcome-text1 {
+  margin-top: 5%;
+  font-size: 5vh;
+  color: white;
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
+#welcome-text2 {
+  margin-top: 25%;
+  font-size: 3vh;
+  color: white;
+  font-weight: bold;
+}
+
+#welcome-text3 {
+  margin-top: 5%;
+  width: 70%;
+  font-size: 2vh;
+  color: white;
+}
+
+#welcome-button {
+  margin-top: auto;
+  margin-bottom: 30%;
+  width: 50%;
+  height: 8%;
+  background-image: linear-gradient(to right, #ff669a, #fcd268 80%);
+  color: white;
+  font-size: 4vh;
+  font-family: Helvetica;
+  font-weight: bold;
+}

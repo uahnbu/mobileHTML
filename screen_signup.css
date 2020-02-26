@@ -1,0 +1,125 @@
+#screen_signup {
+  background-image: linear-gradient(to bottom right, #3d0471, #ba72d4);
+}
+
+#signup-text1 {
+  margin-top: 5%;
+  color: white;
+  font-size: 3vh;
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
+#signup-box1,
+#signup-box2,
+#signup-box3 {
+  margin-top: 10%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+label[for='signup-input1'],
+label[for='signup-input2'],
+label[for='signup-input3']{
+  color: white;
+  font-size: 1.6vh;
+  opacity: .8;
+}
+
+#signup-input1,
+#signup-input2,
+#signup-input3 {
+  position: relative;
+  margin-top: 5%;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  width: 100%;
+  height: 6vh;
+  box-sizing: border-box;
+  background: none;
+  border: solid .1vh #d19f2a;
+  outline: none;
+  color: white;
+  font-size: 2vh;
+  font-weight: bold;
+  transition: .3s;
+}
+
+#signup-input1:focus,
+#signup-input2:focus,
+#signup-input3:focus {
+  background: rgba(232, 184, 39, .2);
+  border: solid .1vh #e8b827;
+}
+
+#signup-box4 {
+  position: relative;
+  margin-top: 10%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#signup-checkbox {
+  position: relative;
+  width: 15%;
+  height: 3vh;
+  opacity: .9;
+}
+
+#signup-input4 {
+  opacity: 0;
+}
+
+#signup-checkbox span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #bdc3c7;
+  border-radius: 2vh;
+  pointer-events: none;
+  transition: .3s;
+}
+
+#signup-checkbox span:before {
+  content: '';
+  position: absolute;
+  left: .5vh;
+  top: .5vh;
+  width: 2vh;
+  height: 2vh;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: .3s;
+}
+
+#signup-input4:checked + span {
+  background: #fcd268;
+}
+
+#signup-input4:checked + span:before {
+  left: 2.5vh;
+}
+
+#signup-text2 {
+  color: white;
+  font-size: 1.6vh;
+  cursor: pointer;
+}
+
+#signup-button {
+  margin-top: auto;
+  margin-bottom: 30%;
+  width: 55%;
+  height: 8%;
+  background-image: linear-gradient(to right, #ff669a, #fcd268 80%);
+  color: white;
+  font-size: 3vh;
+  font-family: Helvetica;
+  font-weight: bold;
+}
